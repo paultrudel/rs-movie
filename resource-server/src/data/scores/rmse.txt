@@ -1,6 +1,0 @@
-Prediction Method	Root Mean Squared Error
-------------------------------------------------
-Item-Based CF		0.5738478408931761
-User-Based CF		0.6829158293487414
-SVD With Imputation	0.9413765566430968
-SVD With GD
