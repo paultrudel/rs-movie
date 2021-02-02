@@ -1,0 +1,13 @@
+<div class="search">
+    <div class="search-input">
+        <input 
+            #searchInput 
+            type="text" 
+            class="search-input__field" 
+            placeholder="Search for movies"
+            (keyup.enter)="onSearchMovies(searchInput.value)">
+        <button class="search-input__button" (click)="onSearchMovies(searchInput.value)">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>

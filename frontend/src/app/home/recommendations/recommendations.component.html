@@ -1,0 +1,21 @@
+<div class="loading-spinner" *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="recommendations" *ngIf="!isLoading">
+    <div class="recommendations-list">
+        <div class="personal-recommendations">
+            <p class="recommendation-title">Recommended for you</p>
+            <app-movie-rec [movies]="personalRecs"></app-movie-rec>
+            <hr>
+        </div>
+        <div class="community-recommendations">
+            <p class="recommendation-title">Other people watched</p>
+            <app-movie-rec [movies]="communityRecs"></app-movie-rec>
+            <hr>
+        </div>
+        <div class="reviewed">
+            <p class="recommendation-title">Watch again</p>
+            <app-movie-rec [movies]="reviewed"></app-movie-rec>
+        </div>
+    </div>
+</div>

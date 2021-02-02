@@ -1,0 +1,10 @@
+@import "../../../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.movie-rec-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+}

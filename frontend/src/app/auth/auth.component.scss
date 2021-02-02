@@ -1,0 +1,52 @@
+@import "../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.main {
+    width: 100%;
+}
+
+form {
+    padding-top: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 40%;
+
+    label {
+        font-weight: bold;
+    }
+}
+
+.form-buttons {
+    width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        width: 40%;
+        border-radius: 4px;
+        background-color: map-get($colours, primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled {
+            background-color: lighten(map-get($colours, primary), 20%);
+            cursor: auto;
+        }
+    }
+}

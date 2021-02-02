@@ -1,0 +1,41 @@
+@import "../../../../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.review {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review__user {
+    a {
+        color: map-get($colours, primary);
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+}
+
+.review__score {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    width: 10%;
+}
+
+.review__content {
+    width: 50%;
+}
+
+.filled {
+    color: map-get($colours, star);
+}
+
+.empty {
+    color: #ccc;
+}

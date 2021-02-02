@@ -1,0 +1,18 @@
+<div class="review">
+    <div class="review__user">
+        <a routerLink="/{{  review.user.username }}">
+            {{ review.user.username }}
+        </a>
+    </div>
+    <div class="review__score">
+        <div class="review__score--stars">
+            <span class="fas fa-star" *ngFor="let count of counter(5); let j = index"
+                    [ngClass]="j < review.score ? 'filled': 'empty'">
+            </span>
+        </div>
+        <p>{{ review.score }}</p>
+    </div>
+    <div class="review__content">
+        <p>{{ review.content }}</p>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+@import "../../../shared/shared.scss";
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
+
+.reviews-heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ngb-rating {
+    color: map-get($colours, star);
+    font-size: 1.5rem;
+}
+
+.form-button {
+    button {
+        width: 40%;
+        border-radius: 4px;
+        background-color: map-get($colours, primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled {
+            background-color: lighten(map-get($colours, primary), 20%);
+            cursor: auto;
+        }
+    }
+}
+
+.reviews__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.reviews__pagination--pagenumber {
+    margin-top: 1rem;
+}
+
+ngb-pagination ::ng-deep a {
+    color: black !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+    border-color: lighten(map-get($colours, secondary), 10%);
+    background-color: lighten(map-get($colours, secondary), 10%);
+    color: white !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem dimgrey;
+}

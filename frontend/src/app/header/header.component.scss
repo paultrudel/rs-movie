@@ -1,0 +1,75 @@
+@import "../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.main-header {
+    width: 100%;
+    position: fixed;
+    background-color: map-get($colours, secondary);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header__brand {
+    margin: 0.5rem;
+    color: map-get($colours, primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Bungee Inline', cursive;
+
+    object {
+        height: 2rem;
+        vertical-align: middle;
+    }
+}
+
+.header-search {
+    width: 40%;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav__item {
+    margin: 1rem;
+    
+    a {
+        text-decoration: none;
+        color: map-get($colours, primary);
+        font-weight: bold;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.main-nav__item--cta {
+    a {
+        color: white;
+        background-color: map-get($colours, primary);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: map-get($colours, primary);
+            background-color: white;
+            border: none;
+        }
+    }
+}

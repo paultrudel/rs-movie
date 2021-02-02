@@ -1,0 +1,21 @@
+<header class="main-header">
+    <div>
+        <a routerLink="/" class="main-header__brand">
+            <object data="">RS Movie</object>
+        </a>
+    </div>
+    <app-search class="header-search" *ngIf="isAuthenticated"></app-search>
+    <nav class="main-nav">
+        <ul class="main-nav__items">
+            <li class="main-nav__item" *ngIf="isAuthenticated">
+                <a routerLink="/{{ username }}">Manage Account</a>
+            </li>
+            <li class="main-nav__item main-nav__item--cta" *ngIf="!isAuthenticated">
+                <a routerLink="/auth">Login</a>
+            </li>
+            <li class="main-nav__item main-nav__item--cta" *ngIf="isAuthenticated">
+                <a (click)="onLogout()">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>

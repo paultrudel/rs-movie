@@ -1,0 +1,34 @@
+@import "../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.search-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input__field {
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    background-color: darken(white, 5%);
+    width: 80%;
+    
+    &:focus {
+        outline: none;
+    }
+}
+
+.search-input__button {
+    border-radius: 4px;
+    background-color: lighten(map-get($colours, secondary), 30%);
+    color: white;
+    border: none;
+    width: 10%;
+
+    &:hover {
+        color: darken(white, $amount: 30%)
+    }
+}

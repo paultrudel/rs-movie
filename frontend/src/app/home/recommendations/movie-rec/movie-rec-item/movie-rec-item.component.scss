@@ -1,0 +1,25 @@
+@import "../../../../shared/shared.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+.movie-rec-item {
+    text-decoration: none;
+}
+
+.movie-rec-item__id {
+    color: map-get($colours, primary);
+}
+
+.movie-rec-item__score {
+
+    p {
+        color: black;
+    }
+}
+
+.filled {
+    color: map-get($colours, star);
+}
+
+.empty {
+    color: #ccc;
+}

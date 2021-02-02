@@ -1,0 +1,14 @@
+<a class="movie-rec-item" routerLink="/movies/{{ movie.id }}">
+    <div class="movie-rec-item__id">
+        <p>{{ movie.id }}</p>
+    </div>
+    <div class="movie-rec-item__score">
+        <span 
+            class="fas fa-star" 
+            *ngFor="let count of counter(5); let j = index"
+            [ngClass]="j < intScore ? 'filled': 'empty'">
+    
+        </span>
+        <p>{{ twoDecimalScore }}</p>
+    </div>
+</a>
