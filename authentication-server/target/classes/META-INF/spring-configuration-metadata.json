@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "keycloak.server",
+      "type": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties"
+    },
+    {
+      "name": "keycloak.server.admin-user",
+      "type": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties$AdminUser",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties",
+      "sourceMethod": "getAdminUser()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "keycloak.server.admin-user.password",
+      "type": "java.lang.String",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties$AdminUser",
+      "defaultValue": "devuser"
+    },
+    {
+      "name": "keycloak.server.admin-user.username",
+      "type": "java.lang.String",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties$AdminUser",
+      "defaultValue": "devuser"
+    },
+    {
+      "name": "keycloak.server.context-path",
+      "type": "java.lang.String",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties",
+      "defaultValue": "\/auth"
+    },
+    {
+      "name": "keycloak.server.realm-file",
+      "type": "java.lang.String",
+      "sourceType": "com.rsmovie.rsmovieauth.config.KeycloakServerProperties",
+      "defaultValue": "rs-realm.json"
+    }
+  ],
+  "hints": []
+}
