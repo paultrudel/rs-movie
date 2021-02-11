@@ -1,6 +1,6 @@
 # Movie Recommender System (RS-Movie)
 
-The purpose of this project was to get a better understanding of how an information system can make recommendations to its users. In addition, this project served as an excellent opporunity to hone my skills with both Spring and Angular, and get some experience with user access management using Keycloak. A portion of the the MovieLens dataset was used as a basis for starting this project. The dataset includes 82,201 reviews from 1252 users on 1079 movies.
+The purpose of this project was to get a better understanding of how an information system can make recommendations to its users. In addition, this project served as an excellent opporunity to hone my skills with both Spring and Angular, and get some experience with user access management using Keycloak. A portion of the the MovieLens dataset was used as a basis for starting this project. The dataset includes 82,201 reviews from 1252 users on 1079 movies with the reviews scoring movies on a scale of 1 to 5.
 
 
 ## Predicting User Scores
@@ -22,6 +22,8 @@ To predict a user's ratings for a specific item user-based CF seeks to identify 
 To generate a rating prediction the similarity function is used to create a neighbourhood, N, of similar users. Only users who have a positive correlation coefficient are taken into account and of those users normally only the top 20 to 50 are actually placed in this neighbourhood. The prediction is computed using the weighted average of the neighbouring user's rating of the specific item.
 
 ![User_Based_CF_Prediction]
+
+For the dataset in this project user-based collaborative filtering produced an RMSE of 0.68.
 
 #### Item-Based CF
 
