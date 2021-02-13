@@ -61,6 +61,8 @@ SVD with imputation predicted scores with an RMSE of 0.94
 
 Instead of imputing missing values it is possible to compute SVD on the sparse ratings matrix by treating missing values as 0. Gradient descent can then be used to adjust the factor matrices before using them for prediction.
 
+![SVD_Gradient_Descent]
+
 
 ## Topic Analysis
 
@@ -83,3 +85,5 @@ Instead of imputing missing values it is possible to compute SVD on the sparse r
 [SVD_Approximation]: https://latex.codecogs.com/gif.latex?Rank%5C%21-%5C%21k%5C%3Aapproximation%5C%3Aof%5C%3Amatrix%5C%3AM%20%5C%5C%5C%5C%20%5Cindent%20%5Chat%7BM%7D%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20%5Chat%7BM%7D%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20m%7D%20%5C%5C
 
 [SVD_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%3DU_uI_i%20%5C%5C%5C%5C%20%5Cindent%20M%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20U%20%3D%20U%20%5C%5C%20%5Cindent%20I%20%3D%20%5CSigma%20V%5ET%5C%5C%5C%5C%20%5Cindent%20U_u%3Du%5E%7Bth%7D%5C%3Arow%5C%3Aof%5C%3Amatrix%5C%3AU%20%5C%5C%20%5Cindent%20I_i%3Di%5E%7Bth%7D%5C%3Acolumn%5C%3Aof%5C%3Amatrix%5C%3AI
+
+[SVD_Gradient_Descent]: https://latex.codecogs.com/gif.latex?R%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20U%3DU%20%5C%5C%20%5Cindent%20I%3D%5CSigma%20V%5ET%20%5C%5C%5C%5C%20%5Cindent%20Find%5C%3Amatrices%5C%3AU%5C%3Aand%5C%3AV%5C%3Awhich%5C%3Aminimize%20%5C%5C%20%5Cindent%20f%28x%29%3D%5Csum_%7B%7Bu%2Ci%7D%20%5Cin%20R%7D%28r_%7Bu%2Ci%7D-U_uI_i%29%5E2&plus;%5Clambda%28%5Csum_%7Bu%20%5Cin%20U%7D%7C%7CU_u%7C%7C%5E2&plus;%5Csum_%7Bi%20%5Cin%20I%7D%7C%7CI_i%7C%7C%5E2%29%20%5C%5C%5C%5C%20%5Cindent%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20U%7D%3D-2%5Csum_%7B%7Bu%2Ci%7D%20%5Cin%20R%7D%28r_%7Bu%2Ci%7D-U_uI_i%29I_i&plus;2%20%5Clambda%20%7C%7CU_u%7C%7C%20%5C%5C%20%5Cindent%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20I%7D%3D-2%5Csum_%7B%7Bu%2Ci%7D%20%5Cin%20R%7D%28r_%7Bu%2Ci%7D-U_uI_i%29U_u&plus;2%20%5Clambda%20%7C%7CI_i%7C%7C%20%5C%5C%5C%5C%20%5Cindent%20%5Cnabla%20U%3D%5B%5Cnabla%20U_%7Buk%7D%5D%3D-2%5Csum_%7B%7Bu%2Ci%7D%20%5Cin%20R%7D%28r_%7Bu%2Ci%7D-U_uI_i%29I_%7Bik%7D&plus;2%20%5Clambda%20U_%7Buk%7D%20%5C%5C%20%5Cindent%20%5Cnabla%20I%3D%5B%5Cnabla%20I_%7Bki%7D%5D%3D-2%5Csum_%7B%7Bu%2Ci%7D%20%5Cin%20R%7D%28r_%7Bu%2Ci%7D-U_uI_i%29U_%7Buk%7D&plus;2%20%5Clambda%20I_%7Bik%7D
