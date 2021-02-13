@@ -43,6 +43,8 @@ The user-item ratings domain can be viewed as a vector space the issue is howeve
 
 ![SVD]
 
+Performing this decomposition accomplishes little initially. However, the dimensionality of these matrices can be easily reduced. The matrix Σ can be truncated by only retaining the k largest singluar values, where k is the number of singular values which retain 80%-90% of the "energy", or total value, in the matrix Σ.   
+
 #### SVD Using Imputation
 
 #### SVD Using Gradient Descent
@@ -64,4 +66,6 @@ The user-item ratings domain can be viewed as a vector space the issue is howeve
 
 [Item_Based_CF_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%20%3D%20%5Cfrac%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29r_%7Bu%2Ci%5E%5Cprime%7D%7D%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29%7D%20%5C%5C%5C%5C%20%5Cindent%20p_%7Bu%2Ci%7D%3Dpredicted%5C%3Arating%5C%3Aof%5C%3Aitem%5C%3Ai%5C%3Aby%5C%3Auser%5C%3Au%5C%5C%5C%5C%20%5Cindent%20N%3Dnegihbourhood%5C%3Aof%5C%3Asimilar%5C%3Aitems%20%5C%5C%5C%5C%20%5Cindent%20sim%28i%2Ci%5E%5Cprime%29%3Dsimilarity%5C%3Abetween%5C%3Aitems%5C%3Ai%5C%3Aand%5C%3Ai%5E%5Cprime%20%5C%5C%5C%5C%20%5Cindent%20r_%7Bu%2Ci%5E%5Cprime%7D%3Drating%5C%3Aof%5C%3Aitem%5C%3Ai%5E%5Cprime%5C%3Aby%5C%3Auser%5C%3Au
 
-[SVD]: https://latex.codecogs.com/gif.latex?Singular%5C%3Avalue%5C%3Adecomposition%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20R%3DU%20%5CSigma%20V%5ET%20%5C%5C%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20u%7D%20%5C%5C%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20m%7D
+[SVD]: https://latex.codecogs.com/gif.latex?Singular%5C%3Avalue%5C%3Adecomposition%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20R%3DU%20%5CSigma%20V%5ET%20%5C%5C%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20u%7D%20%5C%5C%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20u%3Dnumber%5C%3Aof%5C%3Ausers%20%5C%5C%20%5Cindent%20m%3Dnumber%5C%3Aof%5C%3Amovies
+
+[SVD_Approximation]: https://latex.codecogs.com/gif.latex?Rank%5C%21-%5C%21k%5C%3Aapproximation%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20%5Chat%7BR%7D%3DU%20%5CSigma%20V%5ET%20%5C%5C%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20k%7D%20%5C%5C%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20k%7D%20%5C%5C%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20m%7D%20%5C%5C%5C%5C
