@@ -31,6 +31,10 @@ Item-to-item CF functions similariliy to user-to-user CF but uses the similarity
 
 ![Item_Based_CF_Similarity]
 
+Like with user-based CF an neighbourhood, N, of most similar items is created. Only items with a postivie similarity score are considered and of those again only the top 20 to 50 are selected. A final prediction is generated using a weighted average.
+
+
+
 ### Singular Value Decomposition (SVD)
 
 #### SVD Using Imputation
