@@ -43,7 +43,9 @@ The user-item ratings domain can be viewed as a vector space the issue is howeve
 
 ![SVD]
 
-Performing this decomposition accomplishes little initially. However, the dimensionality of these matrices can be easily reduced. The matrix Σ can be truncated by only retaining the k largest singluar values, where k is the number of singular values which retain 80%-90% of the "energy", or total value, in the matrix Σ.   
+Performing this decomposition accomplishes little initially. However, the dimensionality of these matrices can be easily reduced. The matrix Σ can be truncated by only retaining the k largest singluar values, where k is the number of singular values which retain 80%-90% of the "energy", or total value, in the matrix Σ.
+
+![SVD_Approximation]
 
 #### SVD Using Imputation
 
