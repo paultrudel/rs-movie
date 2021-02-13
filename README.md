@@ -39,7 +39,7 @@ Item-based collaborative filtering predicted scores with an RMSE of 0.57
 
 ### Singular Value Decomposition (SVD)
 
-The user-item ratings domain can be viewed as a vector space the issue is however that the vectors are of very high dimension and contain redundancies. Therefore, it would be desirable to reduce the dimensionality of the rating space. One of the most popular methods of doing this is with singular value decomposition (SVD). A matrix, R, can be factorized into three matrices U, Σ, and V. Matrix Σ is a diagonal matrix whose entries are the singular values of the decomposition, U and V are orthogonal matrices.
+The user-item ratings domain can be viewed as a vector space the issue is however that the vectors are of very high dimension and contain redundancies. Therefore, it would be desirable to reduce the dimensionality of the rating space. One of the most popular methods of doing this is with singular value decomposition (SVD). A matrix, M, can be factorized into three matrices U, Σ, and V. Matrix Σ is a diagonal matrix whose entries are the singular values of the decomposition, U and V are orthogonal matrices.
 
 ![SVD]
 
@@ -55,7 +55,11 @@ With imputation the missing values in the ratings matrix are filled with a reaso
 
 ![SVD_Prediction]
 
+SVD with imputation predicted scores with an RMSE of 0.94
+
 #### SVD Using Gradient Descent
+
+Instead of imputing missing values it is possible to compute SVD on the sparse ratings matrix by treating missing values as 0. Gradient descent can then be used to adjust the factor matrices before using them for prediction.
 
 
 ## Topic Analysis
@@ -74,8 +78,8 @@ With imputation the missing values in the ratings matrix are filled with a reaso
 
 [Item_Based_CF_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%20%3D%20%5Cfrac%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29r_%7Bu%2Ci%5E%5Cprime%7D%7D%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29%7D%20%5C%5C%5C%5C%20%5Cindent%20p_%7Bu%2Ci%7D%3Dpredicted%5C%3Arating%5C%3Aof%5C%3Aitem%5C%3Ai%5C%3Aby%5C%3Auser%5C%3Au%5C%5C%5C%5C%20%5Cindent%20N%3Dnegihbourhood%5C%3Aof%5C%3Asimilar%5C%3Aitems%20%5C%5C%5C%5C%20%5Cindent%20sim%28i%2Ci%5E%5Cprime%29%3Dsimilarity%5C%3Abetween%5C%3Aitems%5C%3Ai%5C%3Aand%5C%3Ai%5E%5Cprime%20%5C%5C%5C%5C%20%5Cindent%20r_%7Bu%2Ci%5E%5Cprime%7D%3Drating%5C%3Aof%5C%3Aitem%5C%3Ai%5E%5Cprime%5C%3Aby%5C%3Auser%5C%3Au
 
-[SVD]: https://latex.codecogs.com/gif.latex?Singular%5C%3Avalue%5C%3Adecomposition%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20R%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20u%7D%20%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20u%3Dnumber%5C%3Aof%5C%3Ausers%20%5C%5C%20%5Cindent%20m%3Dnumber%5C%3Aof%5C%3Amovies
+[SVD]: https://latex.codecogs.com/gif.latex?Singular%5C%3Avalue%5C%3Adecomposition%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20M%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20M%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20u%7D%20%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20u%3Dnumber%5C%3Aof%5C%3Ausers%20%5C%5C%20%5Cindent%20m%3Dnumber%5C%3Aof%5C%3Amovies
 
-[SVD_Approximation]: https://latex.codecogs.com/gif.latex?Rank%5C%21-%5C%21k%5C%3Aapproximation%5C%3Aof%5C%3Amatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20%5Chat%7BR%7D%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20m%7D%20%5C%5C
+[SVD_Approximation]: https://latex.codecogs.com/gif.latex?Rank%5C%21-%5C%21k%5C%3Aapproximation%5C%3Aof%5C%3Amatrix%5C%3AM%20%5C%5C%5C%5C%20%5Cindent%20%5Chat%7BM%7D%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20%5Chat%7BM%7D%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20k%7D%20%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bk%20%5Ctimes%20m%7D%20%5C%5C
 
-[SVD_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%3DU_uI_i%20%5C%5C%5C%5C%20%5Cindent%20R%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20U%20%3D%20U%20%5C%5C%20%5Cindent%20I%20%3D%20%5CSigma%20V%5ET%5C%5C%5C%5C%20%5Cindent%20U_u%3Du%5E%7Bth%7D%5C%3Arow%5C%3Aof%5C%3Amatrix%5C%3AU%20%5C%5C%20%5Cindent%20I_i%3Di%5E%7Bth%7D%5C%3Acolumn%5C%3Aof%5C%3Amatrix%5C%3AI
+[SVD_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%3DU_uI_i%20%5C%5C%5C%5C%20%5Cindent%20M%3DU%20%5CSigma%20V%5ET%20%5C%5C%20%5Cindent%20U%20%3D%20U%20%5C%5C%20%5Cindent%20I%20%3D%20%5CSigma%20V%5ET%5C%5C%5C%5C%20%5Cindent%20U_u%3Du%5E%7Bth%7D%5C%3Arow%5C%3Aof%5C%3Amatrix%5C%3AU%20%5C%5C%20%5Cindent%20I_i%3Di%5E%7Bth%7D%5C%3Acolumn%5C%3Aof%5C%3Amatrix%5C%3AI
