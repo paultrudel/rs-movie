@@ -39,6 +39,10 @@ Item-based collaborative filtering predicted scores with an RMSE of 0.57
 
 ### Singular Value Decomposition (SVD)
 
+The user-item ratings domain can be viewed as a vector space the issue is however that the vectors are of very high dimension and contain redundancies. Therefore, it would be desirable to reduce the dimensionality of the rating space. One of the most popular methods of doing this is with singular value decomposition (SVD). A matrix, R, can be factorized into three matrices U, Σ, and V. Matrix Σ is a diagonal matrix whose entries are the singular values of the decomposition, U and V are orthogonal matrices.
+
+![SVD]
+
 #### SVD Using Imputation
 
 #### SVD Using Gradient Descent
@@ -59,3 +63,5 @@ Item-based collaborative filtering predicted scores with an RMSE of 0.57
 [Item_Based_CF_Similarity]: https://latex.codecogs.com/gif.latex?sim%28%5Cvec%7Ba%7D%2C%5Cvec%7Bb%7D%29%20%3D%20%5Cfrac%7B%5Cvec%7Ba%7D%5Cbullet%5Cvec%7Bb%7D%7D%7B%7C%7C%5Cvec%7Ba%7D%7C%7C%5Ccdot%7C%7C%5Cvec%7Bb%7D%7C%7C%7D%20%5C%5C%5C%5C%20%5Cindent%20%5Cvec%7Ba%7D%3Drating%5C%3Avector%5C%3Afor%5C%3Aitem%5C%3Aa%20%5C%5C%5C%5C%20%5Cindent%20%5Cvec%7Bb%7D%3Drating%5C%3Avector%5C%3Afor%5C%3Aitem%5C%3Ab%20%5C%5C%5C%5C%5C%5C%20%5Cindent%20Adjusted%5C%3Acosine%5C%3Asimilarity%20%5C%5C%5C%5C%20%5Cindent%20sim%28%5Cvec%7Ba%7D%2C%5Cvec%7Bb%7D%29%20%3D%20%5Cfrac%7B%5Csum_%7Bu%20%5Cin%20U%7D%28r_%7Bu%2Ca%7D-%5Cbar%7Br%7D_u%29%28r_%7Bu%2Cb%7D-%5Cbar%7Br%7D_u%29%7D%7B%5Csqrt%7B%5Csum_%7Bu%20%5Cin%20U%7D%28r_%7Bu%2Ca%7D-%5Cbar%7Br%7D_u%29%5E2%7D%5Csqrt%7B%5Csum_%7Bu%20%5Cin%20U%7D%28r_%7Bu%2Cb%7D-%5Cbar%7Br%7D_u%29%5E2%7D%7D%20%5C%5C%5C%5C%20%5Cindent%20U%3Dset%5C%3Aof%5C%3Ausers%5C%3Awho%5C%3Ahave%5C%3Arated%5C%3Aboth%5C%3Aitems%20%5C%5C%5C%5C%20%5Cindent%20r_%7Bu%2Ca%7D%3Drating%5C%3Aof%5C%3Aitem%5C%3Aa%5C%3Aby%5C%3Auser%5C%3Au%20%5C%5C%5C%5C%20%5Cindent%20r_%7Bu%2Cb%7D%3Drating%5C%3Aof%5C%3Aitem%5C%3Ab%5C%3Aby%5C%3Auser%5C%3Au%20%5C%5C%5C%5C%20%5Cindent%20%5Cbar%7Br%7D_u%3Daverage%5C%3Arating%5C%3Agiven%5C%3Aby%5C%3Auser%5C%3Au
 
 [Item_Based_CF_Prediction]: https://latex.codecogs.com/gif.latex?p_%7Bu%2Ci%7D%20%3D%20%5Cfrac%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29r_%7Bu%2Ci%5E%5Cprime%7D%7D%7B%5Csum_%7Bi%5E%5Cprime%20%5Cin%20N%7Dsim%28i%2Ci%5E%5Cprime%29%7D%20%5C%5C%5C%5C%20%5Cindent%20p_%7Bu%2Ci%7D%3Dpredicted%5C%3Arating%5C%3Aof%5C%3Aitem%5C%3Ai%5C%3Aby%5C%3Auser%5C%3Au%5C%5C%5C%5C%20%5Cindent%20N%3Dnegihbourhood%5C%3Aof%5C%3Asimilar%5C%3Aitems%20%5C%5C%5C%5C%20%5Cindent%20sim%28i%2Ci%5E%5Cprime%29%3Dsimilarity%5C%3Abetween%5C%3Aitems%5C%3Ai%5C%3Aand%5C%3Ai%5E%5Cprime%20%5C%5C%5C%5C%20%5Cindent%20r_%7Bu%2Ci%5E%5Cprime%7D%3Drating%5C%3Aof%5C%3Aitem%5C%3Ai%5E%5Cprime%5C%3Aby%5C%3Auser%5C%3Au
+
+[SVD]: https://latex.codecogs.com/gif.latex?Singular%5C%3AValue%5C%3ADecomposition%5C%3Aof%5C%3AMatrix%5C%3AR%20%5C%5C%5C%5C%20%5Cindent%20R%3DU%20%5CSigma%20V%5ET%20%5C%5C%5C%5C%20%5Cindent%20R%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20u%7D%20%5C%5C%5C%5C%20%5Cindent%20%5CSigma%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bu%20%5Ctimes%20m%7D%20%5C%5C%5C%5C%20%5Cindent%20V%5ET%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20m%7D
