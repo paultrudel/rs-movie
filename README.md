@@ -51,7 +51,9 @@ SVD is only well-defined when a matrix is complete and therefore it should not b
 
 #### SVD Using Imputation
 
-With imputation the missing values in the ratings matrix are filled with a reasonable default value. Generally this default value is either the item's or user's average rating. For this project missing values were imputed using the movie's average rating. Predictions are made by computing the weighted dot product of the user-factor vector and the item-factor vector. 
+With imputation the missing values in the ratings matrix are filled with a reasonable default value. Generally this default value is either the item's or user's average rating. For this project missing values were imputed using the movie's average rating. Predictions are made by computing the weighted dot product of the user-factor vector and the item-factor vector.
+
+![SVD_Prediction]
 
 #### SVD Using Gradient Descent
 
