@@ -63,6 +63,8 @@ Instead of imputing missing values it is possible to compute SVD on the sparse r
 
 ![SVD_Gradient_Descent]
 
+Once the matrices have been adjusted prediction can be done the same way as before. This method of predicting scores produced an RMSE of 0.65
+
 
 ## Topic Analysis
 
