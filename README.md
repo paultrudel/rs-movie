@@ -47,7 +47,11 @@ Performing this decomposition accomplishes little initially. However, the dimens
 
 ![SVD_Approximation]
 
+SVD is only well-defined when a matrix is complete and therefore it should not be directly computed on the sparse ratings matrix. There are multiple solutions to this problem two of which were implemented in this project; imputation and gradient descent.
+
 #### SVD Using Imputation
+
+With imputation the missing values in the ratings matrix are filled with a reasonable default value. Generally this default value is either the item's or user's average rating. For this project missing values were imputed using the movie's average rating. Predictions are made by computing the weighted dot product of the user-factor vector and the movie-factor vector. 
 
 #### SVD Using Gradient Descent
 
