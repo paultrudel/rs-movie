@@ -35,7 +35,7 @@ Like with user-based CF an neighbourhood, N, of most similar items is created. O
 
 ![Item_Based_CF_Prediction]
 
-
+Item-based collaborative filtering predicted scores with an RMSE of 0.57
 
 ### Singular Value Decomposition (SVD)
 
