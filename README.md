@@ -68,6 +68,7 @@ Once the matrices have been adjusted prediction can be done the same way as befo
 
 ## Topic Analysis
 
+Topic analysis was done to improve movie recommendations to users in two ways. Firstly, it can be assumed that users tend to like movies belonging to a small set of genres, or topics, rather than a few movies from all genres. Topic analysis is used to cluser the movies based on their topic to more easily identify similar movies. Secondly, by grouping movies by topic the users can then be grouped together by the topics they are interested in so that instead of making individual recommendations to each user a single recommendation can be given that will appeal to a set of users. To assign each movie to a topic latent Dirichlet allocation (LDA) was performed using the reviews provided by the users. 
 
 ## Clustering Users
 
